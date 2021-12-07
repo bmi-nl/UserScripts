@@ -32,7 +32,10 @@
     }
 
     var checkExist = setInterval(function() {
-        if (document.querySelectorAll('#rc-tabs-0-tab-agenda').length) {
+        if (
+            document.querySelectorAll('#rc-tabs-0-tab-agenda').length &&
+            document.querySelectorAll('.agenda-future-items').length
+        ) {
             elem = document.getElementById('rc-tabs-0-tab-agenda')
             clearInterval(checkExist);
             init();
