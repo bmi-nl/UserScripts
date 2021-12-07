@@ -12,9 +12,23 @@
     'use strict';
     var elem;
 
+    // Set page with and count appointments
+    function setPageWidth() {
+        var centeredElems = document.getElementsByClassName('centered-content');
+        centeredElems.forEach(function(node){
+            node.style = "max-width: 1300px";
+        });
+    }
+
+    function addAppointmentCount() {
+        var calTab = document.getElementById('rc-tabs-0-tab-agenda');
+        var suf = " (" + document.getElementsByClassName('agenda-future-items')[0].firstChild.childElementCount + ")"
+        calTab.getElementsByClassName('tab-pane-desktop')[0].innerText = 'Agenda ' + suf;
+    };
+
     function init() {
-        console.log('Init run !');
-        elem.style = 'color: red;';
+        setPageWidth();
+        addAppointmentCount();
     }
 
     var checkExist = setInterval(function() {
@@ -24,5 +38,11 @@
             init();
         }
     }, 100);
+
+    // Force page reload after x minutes
+    var t = 5 * 60 * 1000;
+    setTimeout(function(){
+        window.location.reload(true);
+    }, t);
 
 })();
