@@ -14,6 +14,7 @@
 
     // Set page with and count appointments
     function setPageWidth() {
+        document.querySelector('.agenda-item-list-wrapper').style = 'margin-right: 0;'
         var centeredElems = document.getElementsByClassName('centered-content');
         centeredElems.forEach(function(node){
             node.style = "max-width: 1300px";
